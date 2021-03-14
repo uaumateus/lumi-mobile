@@ -20,3 +20,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Metropolis
+      fonts:
+        - asset: assets/fonts/metropolis_regular.otf
+        - asset: assets/fonts/metropolis_bold.otf
