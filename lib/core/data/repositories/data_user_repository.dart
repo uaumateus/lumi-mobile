@@ -2,10 +2,6 @@ import 'package:lumi/core/domain/entities/user.dart';
 import 'package:lumi/core/domain/repositories/user_repository.dart';
 import 'package:lumi/network/network.dart';
 
-enum AuthError { INVALID_CODE, NO_USER }
-
-typedef UserAuthenticatedFunction = void Function(User user);
-
 class DataUserRepository extends UserRepository {
   User _user = User();
   static Network _network;
