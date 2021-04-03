@@ -3,6 +3,7 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:lumi/core/data/repositories/data_video_repository.dart';
 import 'package:lumi/pages/home/home_controller.dart';
 import 'package:lumi/widgets/lumi_card_film_widget.dart';
+import 'package:lumi/widgets/lumi_card_list_widget.dart';
 import 'package:lumi/widgets/lumi_default_view_widget.dart';
 
 class HomePage extends View {
@@ -23,7 +24,7 @@ class _HomePageState extends ViewState<HomePage, HomeController> {
       key: globalKey,
       children: [Container(child: Padding(
         padding: EdgeInsets.all(8.0),
-        child: LumiCardFilm(),
+        child: LumiCardList(title: 'Os mais assistidos', cards: [LumiCardFilm(), LumiCardFilm(), LumiCardFilm()]),
       ))]
     );
   }

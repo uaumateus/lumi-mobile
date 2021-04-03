@@ -30,25 +30,23 @@ class _LumiDefaultViewState extends State<LumiDefaultView> {
       height: 64,
       color: LUMI_DARK_GREY,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Image.asset('assets/images/logo.png', fit: BoxFit.contain),
-          ),
-          Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Busque por vídeos, disciplinas, gêneros…',
-                prefixIcon: Icon(Icons.search, color: Colors.white),
-                hintStyle: TextStyle(color: Colors.white),
-                border: InputBorder.none
-              )
-            )
-          )
-        ])
-      ));
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Image.asset('assets/images/logo.png',
+                      fit: BoxFit.contain),
+                ),
+                Expanded(
+                    child: TextField(
+                        decoration: InputDecoration(
+                            hintText:
+                                'Busque por vídeos, disciplinas, gêneros…',
+                            prefixIcon: Icon(Icons.search, color: Colors.white),
+                            hintStyle: TextStyle(color: Colors.white),
+                            border: InputBorder.none)))
+              ])));
 }
