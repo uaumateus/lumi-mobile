@@ -13,7 +13,7 @@ class HomeController extends Controller {
   @override
   void onInitState() {
     super.onInitState();
-    fetchVideos();
+    //fetchVideos();
   }
 
   @override

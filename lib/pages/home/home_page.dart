@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:lumi/core/data/repositories/data_video_repository.dart';
 import 'package:lumi/pages/home/home_controller.dart';
+import 'package:lumi/widgets/lumi_default_view.dart';
 
 class HomePage extends View {
   final Controller controller;
@@ -17,9 +18,9 @@ class _HomePageState extends ViewState<HomePage, HomeController> {
 
   @override
   Widget get view {
-    return Scaffold(
+    return LumiDefaultView(
       key: globalKey,
-      body: Container(child: Text('Home'))
+      children: [Container(child: Text('Home'))]
     );
   }
 }
