@@ -4,7 +4,9 @@ import 'package:lumi/core/domain/entities/video.dart';
 import 'package:lumi/core/domain/repositories/video_repository.dart';
 
 class ListVideosUseCaseParams {
-  ListVideosUseCaseParams();
+  final int limit;
+
+  ListVideosUseCaseParams({this.limit});
 }
 
 class ListVideosUseCaseResponse {
@@ -24,7 +26,7 @@ class ListVideosUseCase extends UseCase<ListVideosUseCaseResponse, ListVideosUse
     final StreamController<ListVideosUseCaseResponse> controller =
         StreamController();
     try {
-      List<Video> videos = await videoRepository.listVideos();
+      List<Video> videos = await videoRepository.listVideos(limit: params.limit);
 
       controller.add(ListVideosUseCaseResponse(videos));
       controller.close();

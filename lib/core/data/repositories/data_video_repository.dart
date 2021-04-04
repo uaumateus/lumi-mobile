@@ -18,7 +18,7 @@ class DataVideoRepository extends VideoRepository {
   }
 
   @override
-  Future<List<Video>> listVideos() async {
+  Future<List<Video>> listVideos({int limit = 10}) async {
     final response = await _network.get('videos');
     final decoded = jsonDecode(response).cast<Map<String, dynamic>>();
 
