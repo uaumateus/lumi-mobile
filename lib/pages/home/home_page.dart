@@ -13,7 +13,7 @@ class HomePage extends View {
 
   @override
   _HomePageState createState() =>
-      _HomePageState(HomeController(DataVideoRepository()));
+      _HomePageState(controller ?? HomeController(DataVideoRepository()));
 }
 
 class _HomePageState extends ViewState<HomePage, HomeController> {
@@ -30,8 +30,10 @@ class _HomePageState extends ViewState<HomePage, HomeController> {
                 if (!controller.isLoading)
                   return LumiCardList(
                       title: 'Os mais assistidos',
+                      emptyStateMessage: 'Nenhum vídeo',
                       cards: controller.videos
-                          .map((video) => LumiCardFilm(title: video.title, subtitle: video.discipline))
+                          .map((video) => LumiCardFilm(
+                              title: video.title, subtitle: video.discipline))
                           .toList());
 
                 return Container();

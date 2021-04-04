@@ -48,6 +48,8 @@ class HomeController extends Controller {
     };
     presenter.listVideosOnError = (error) {
       print(error);
+
+      _setLoading(false);
     };
   }
 

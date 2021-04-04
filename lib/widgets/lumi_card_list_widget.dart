@@ -10,7 +10,7 @@ class LumiCardList extends StatelessWidget {
   const LumiCardList(
       {Key key,
       this.cards = const [],
-      this.emptyStateMessage = 'Empty List',
+      this.emptyStateMessage = 'Lista vazia',
       this.title})
       : super(key: key);
 
@@ -39,7 +39,7 @@ class LumiCardList extends StatelessWidget {
   get _carousel => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: cards.isEmpty
-            ? [_emptyState]
+            ? _emptyState
             : Row(
                 children: cards
                     .map((card) => Padding(
