@@ -1,10 +1,17 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
+import 'package:lumi/core/domain/entities/video.dart';
 import 'package:lumi/core/domain/repositories/video_repository.dart';
 
 import './home_presenter.dart';
 
 class HomeController extends Controller {
   final HomePresenter presenter;
+
+  List<Video> _videos = [];
+  List<Video> get videos => _videos;
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
   HomeController(VideoRepository videoRepository)
       : presenter = HomePresenter(videoRepository),
@@ -13,7 +20,7 @@ class HomeController extends Controller {
   @override
   void onInitState() {
     super.onInitState();
-    //fetchVideos();
+    fetchVideos();
   }
 
   @override
@@ -21,13 +28,23 @@ class HomeController extends Controller {
     _initializeListVideosListener();
   }
 
+  void _setLoading(bool value) {
+    _isLoading = value;
+    refreshUI();
+  }
+
   void fetchVideos() {
+    _setLoading(true);
+    
     presenter.listVideos();
   }
 
   _initializeListVideosListener() {
-    presenter.listVideosOnNext = (videos) {};
+    presenter.listVideosOnNext = (videos) {
+      _videos = videos;
+    };
     presenter.listVideosOnComplete = () {
+      _setLoading(false);
     };
     presenter.listVideosOnError = (error) {
       print(error);

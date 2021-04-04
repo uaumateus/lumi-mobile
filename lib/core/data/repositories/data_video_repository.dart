@@ -19,11 +19,12 @@ class DataVideoRepository extends VideoRepository {
 
   @override
   Future<List<Video>> listVideos() async {
-    final response = await _network.get('videos');
+    /* final response = await _network.get('videos');
     final decoded = jsonDecode(response).cast<Map<String, dynamic>>();
 
     List<Video> videos = decoded.map<Video>((video) => Video.fromJson(video)).toList();
-    
-    return videos;
+     */
+    //return videos;
+    return [Video(title: 'As branquelas', discipline: 'Narrativas Multimidia')];
   }
 }

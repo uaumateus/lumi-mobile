@@ -2,6 +2,7 @@ class Video {
   final String id;
   final String title;
   final String description;
+  final String discipline;
   final String parentalRating;
   final String url;
   final String platform;
@@ -20,6 +21,7 @@ class Video {
       {this.id,
       this.title,
       this.description,
+      this.discipline,
       this.parentalRating,
       this.url,
       this.platform,

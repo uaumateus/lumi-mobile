@@ -4,9 +4,15 @@ import 'package:lumi/widgets/lumi_card_film_widget.dart';
 
 class LumiCardList extends StatelessWidget {
   final List<LumiCardFilm> cards;
+  final String emptyStateMessage;
   final String title;
 
-  const LumiCardList({Key key, this.cards, this.title}) : super(key: key);
+  const LumiCardList(
+      {Key key,
+      this.cards = const [],
+      this.emptyStateMessage = 'Empty List',
+      this.title})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,8 @@ class LumiCardList extends StatelessWidget {
   }
 
   get _title => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(width: 32, child: Divider(thickness: 2, color: LUMI_LIGHT_PURPLE)),
+        Container(
+            width: 32, child: Divider(thickness: 2, color: LUMI_LIGHT_PURPLE)),
         Padding(
           padding: EdgeInsets.only(bottom: 16.0),
           child: Text(title.toUpperCase(),
@@ -31,10 +38,14 @@ class LumiCardList extends StatelessWidget {
 
   get _carousel => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-            children: cards
-                .map((card) =>
-                    Padding(padding: EdgeInsets.only(right: 8.0), child: card))
-                .toList()),
+        child: cards.isEmpty
+            ? [_emptyState]
+            : Row(
+                children: cards
+                    .map((card) => Padding(
+                        padding: EdgeInsets.only(right: 8.0), child: card))
+                    .toList()),
       );
+
+  get _emptyState => Text(emptyStateMessage);
 }

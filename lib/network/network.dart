@@ -37,7 +37,6 @@ class Network {
   Future<dynamic> get(String route) async {
     try {
       var response = await http.get('$connUrl$route');
-
       return response.body;
     } catch (error) {
       print(error);

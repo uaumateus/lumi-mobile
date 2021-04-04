@@ -12,7 +12,8 @@ class HomePage extends View {
   HomePage({Key key, this.controller}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState(HomeController(DataVideoRepository()));
+  _HomePageState createState() =>
+      _HomePageState(HomeController(DataVideoRepository()));
 }
 
 class _HomePageState extends ViewState<HomePage, HomeController> {
@@ -20,12 +21,21 @@ class _HomePageState extends ViewState<HomePage, HomeController> {
 
   @override
   Widget get view {
-    return LumiDefaultView(
-      key: globalKey,
-      children: [Container(child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: LumiCardList(title: 'Os mais assistidos', cards: [LumiCardFilm(), LumiCardFilm(), LumiCardFilm()]),
-      ))]
-    );
+    return LumiDefaultView(key: globalKey, children: [
+      Container(
+          child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ControlledWidgetBuilder<HomeController>(
+                  builder: (_, controller) {
+                if (!controller.isLoading)
+                  return LumiCardList(
+                      title: 'Os mais assistidos',
+                      cards: controller.videos
+                          .map((video) => LumiCardFilm(title: video.title, subtitle: video.discipline))
+                          .toList());
+
+                return Container();
+              })))
+    ]);
   }
 }
