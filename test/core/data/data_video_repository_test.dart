@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lumi/core/data/repositories/data_video_repository.dart';
-import 'package:lumi/core/domain/entities/video.dart';
+import 'package:lumi/core/domain/entities/video_entity.dart';
 import 'package:lumi/network/network.dart';
 import 'package:mockito/mockito.dart';
 

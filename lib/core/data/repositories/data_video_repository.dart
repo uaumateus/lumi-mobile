@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:lumi/core/domain/entities/video.dart';
+import 'package:lumi/core/domain/entities/video_entity.dart';
 import 'package:lumi/core/domain/repositories/video_repository.dart';
 import 'package:lumi/network/network.dart';
 

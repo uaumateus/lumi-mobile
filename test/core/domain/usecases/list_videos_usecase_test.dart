@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lumi/core/data/repositories/data_video_repository.dart';
-import 'package:lumi/core/domain/entities/video.dart';
+import 'package:lumi/core/domain/entities/video_entity.dart';
 import 'package:lumi/core/domain/usecases/video/list_videos_usecase.dart';
 import 'package:mockito/mockito.dart';
 

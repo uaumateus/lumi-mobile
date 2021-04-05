@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lumi/core/data/repositories/data_video_repository.dart';
-import 'package:lumi/core/domain/entities/video.dart';
+import 'package:lumi/core/domain/entities/video_entity.dart';
 import 'package:lumi/pages/home/home_controller.dart';
 import 'package:lumi/pages/home/home_page.dart';
 import 'package:lumi/widgets/lumi_card_film_widget.dart';

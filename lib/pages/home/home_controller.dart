@@ -1,5 +1,5 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:lumi/core/domain/entities/video.dart';
+import 'package:lumi/core/domain/entities/video_entity.dart';
 import 'package:lumi/core/domain/repositories/video_repository.dart';
 
 import './home_presenter.dart';
