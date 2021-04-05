@@ -24,7 +24,7 @@ void main() {
   });
 
   testWidgets('Default test of Home page', (WidgetTester tester) async {
-    when(mockVideoRepository.listVideos())
+    when(mockVideoRepository.listVideos(limit: anyNamed('limit')))
         .thenAnswer((_) => Future.value([_video]));
 
     await tester.pumpWidget(widget);
@@ -40,7 +40,7 @@ void main() {
   });
 
   testWidgets('Test of Home page - Empty list', (WidgetTester tester) async {
-    when(mockVideoRepository.listVideos()).thenAnswer((_) => Future.value([]));
+    when(mockVideoRepository.listVideos(limit: anyNamed('limit'))).thenAnswer((_) => Future.value([]));
 
     await tester.pumpWidget(widget);
     await tester.pumpAndSettle();
@@ -55,7 +55,7 @@ void main() {
 
   testWidgets('Test of Home page - Error on fetching list',
       (WidgetTester tester) async {
-    when(mockVideoRepository.listVideos()).thenThrow(UnimplementedError());
+    when(mockVideoRepository.listVideos(limit: anyNamed('limit'))).thenThrow(UnimplementedError());
 
     await tester.pumpWidget(widget);
     await tester.pumpAndSettle();
