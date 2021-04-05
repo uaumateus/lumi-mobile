@@ -33,7 +33,7 @@ class _HomePageState extends ViewState<HomePage, HomeController> {
                       emptyStateMessage: 'Nenhum vídeo',
                       cards: controller.videos
                           .map((video) => LumiCardFilm(
-                              title: video.title, subtitle: video.discipline))
+                              title: video.title, subtitle: video.description))
                           .toList());
 
                 return Container();

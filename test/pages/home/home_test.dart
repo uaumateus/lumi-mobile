@@ -15,7 +15,7 @@ void main() {
   HomeController controller;
 
   Video _video =
-      Video(title: 'As branquelas', discipline: 'Narrativas Multimidia');
+      Video(title: 'As branquelas', description: 'Narrativas Multimidia');
 
   setUp(() {
     controller = HomeController(mockVideoRepository);
@@ -34,14 +34,13 @@ void main() {
 
     expect(find.widgetWithText(LumiCardFilm, _video.title), findsOneWidget);
     expect(
-        find.widgetWithText(LumiCardFilm, _video.discipline), findsOneWidget);
+        find.widgetWithText(LumiCardFilm, _video.description), findsOneWidget);
 
     expect(find.text('Nenhum vídeo'), findsNothing);
   });
 
   testWidgets('Test of Home page - Empty list', (WidgetTester tester) async {
-    when(mockVideoRepository.listVideos())
-        .thenAnswer((_) => Future.value([]));
+    when(mockVideoRepository.listVideos()).thenAnswer((_) => Future.value([]));
 
     await tester.pumpWidget(widget);
     await tester.pumpAndSettle();
@@ -49,15 +48,14 @@ void main() {
     expect(find.byType(HomePage), findsOneWidget);
 
     expect(find.widgetWithText(LumiCardFilm, _video.title), findsNothing);
-    expect(
-        find.widgetWithText(LumiCardFilm, _video.discipline), findsNothing);
+    expect(find.widgetWithText(LumiCardFilm, _video.description), findsNothing);
 
     expect(find.text('Nenhum vídeo'), findsOneWidget);
   });
 
-  testWidgets('Test of Home page - Error on fetching list', (WidgetTester tester) async {
-    when(mockVideoRepository.listVideos())
-        .thenThrow(UnimplementedError());
+  testWidgets('Test of Home page - Error on fetching list',
+      (WidgetTester tester) async {
+    when(mockVideoRepository.listVideos()).thenThrow(UnimplementedError());
 
     await tester.pumpWidget(widget);
     await tester.pumpAndSettle();
@@ -65,8 +63,7 @@ void main() {
     expect(find.byType(HomePage), findsOneWidget);
 
     expect(find.widgetWithText(LumiCardFilm, _video.title), findsNothing);
-    expect(
-        find.widgetWithText(LumiCardFilm, _video.discipline), findsNothing);
+    expect(find.widgetWithText(LumiCardFilm, _video.description), findsNothing);
 
     expect(find.text('Nenhum vídeo'), findsOneWidget);
   });

@@ -22,8 +22,9 @@ class DataVideoRepository extends VideoRepository {
     final response = await _network.get('videos');
     final decoded = jsonDecode(response).cast<Map<String, dynamic>>();
 
-    List<Video> videos = decoded.map<Video>((video) => Video.fromJson(video)).toList();
-    
+    List<Video> videos =
+        decoded.map<Video>((video) => Video.fromJson(video)).toList();
+
     return videos;
   }
 }

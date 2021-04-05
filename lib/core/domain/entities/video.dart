@@ -2,7 +2,6 @@ class Video {
   final String id;
   final String title;
   final String description;
-  final String discipline;
   final String parentalRating;
   final String url;
   final String platform;
@@ -21,7 +20,6 @@ class Video {
       {this.id,
       this.title,
       this.description,
-      this.discipline,
       this.parentalRating,
       this.url,
       this.platform,
@@ -37,11 +35,15 @@ class Video {
       this.members});
 
   factory Video.fromJson(Map<String, dynamic> parsedJson) {
-    List<String> _tags = parsedJson['tags'].map<String>((tag) => tag.toString()).toList();
-    List<String> _comments = parsedJson['comments'].map<String>((tag) => tag.toString()).toList();
-    List<String> _cast = parsedJson['cast'].map<String>((tag) => tag.toString()).toList();
-    List<String> _members = parsedJson['members'].map<String>((tag) => tag.toString()).toList();
-    
+    List<String> _tags =
+        parsedJson['tags'].map<String>((tag) => tag.toString()).toList();
+    List<String> _comments =
+        parsedJson['comments'].map<String>((tag) => tag.toString()).toList();
+    List<String> _cast =
+        parsedJson['cast'].map<String>((tag) => tag.toString()).toList();
+    List<String> _members =
+        parsedJson['members'].map<String>((tag) => tag.toString()).toList();
+
     return Video(
         id: parsedJson['_id'] as String,
         title: parsedJson['title'] as String,
@@ -58,8 +60,7 @@ class Video {
         tags: _tags,
         comments: _comments,
         cast: _cast,
-        members: _members
-        );
+        members: _members);
   }
 
   Map<String, dynamic> toJson() {

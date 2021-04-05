@@ -11,13 +11,14 @@ class MockVideoRepository extends Mock implements DataVideoRepository {}
 
 void main() {
   Video _video =
-      Video(title: 'As branquelas', discipline: 'Narrativas Multimidia');
+      Video(title: 'As branquelas', description: 'Narrativas Multimidia');
   var params = ListVideosUseCaseParams(limit: 10);
   ListVideosUseCaseObserver observer;
   final repository = MockVideoRepository();
   ListVideosUseCase usecase = ListVideosUseCase(repository);
 
-  when(repository.listVideos(limit: 10)).thenAnswer((_) => Future.value([_video]));
+  when(repository.listVideos(limit: 10))
+      .thenAnswer((_) => Future.value([_video]));
 
   setUp(() {
     observer = ListVideosUseCaseObserver();
