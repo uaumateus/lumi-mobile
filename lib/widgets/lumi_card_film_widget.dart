@@ -6,7 +6,9 @@ class LumiCardFilm extends StatelessWidget {
   final String subtitle;
   final String photo;
 
-  const LumiCardFilm({Key key, @required this.title, @required this.subtitle, this.photo}) : super(key: key);
+  const LumiCardFilm(
+      {Key key, @required this.title, @required this.subtitle, this.photo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +40,12 @@ class LumiCardFilm extends StatelessWidget {
           Text(title,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.bold, color: LUMI_WHITE)),
-          Text(subtitle,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: LUMI_WHITE))
+          Expanded(
+            child: Text(subtitle,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: LUMI_WHITE)),
+          )
         ]),
       );
 }

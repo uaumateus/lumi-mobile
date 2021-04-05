@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lumi/theme/constants/colors.dart';
 import 'package:lumi/widgets/lumi_bottom_navigation_bar_widget.dart';
 
