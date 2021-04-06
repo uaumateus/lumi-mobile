@@ -13,6 +13,8 @@ dependencies:
   flutter_clean_architecture: ^4.1.1
   http: ^0.12.2
   shared_preferences: ^0.5.8
+  mockito: ^4.1.3
+  flutter_svg: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +22,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: Metropolis
+      fonts:
+        - asset: assets/fonts/metropolis_regular.otf
+        - asset: assets/fonts/metropolis_bold.otf

@@ -1,22 +1,15 @@
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Network {
   String get connUrl => 'http://lumibox.centralus.cloudapp.azure.com/api/';
 
-  static Future<String> get currToken async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('apiToken');
-  }
-
-  Future<Map<String, String>> get _headers async {
+  Future<Map<String, String>> get headers async {
     Map headers = <String, String>{
       'Accept': '/',
       'Access-Control-Allow-Origin': '*',
     };
 
     headers['Content-Type'] = 'application/json';
-    headers['Authorization'] = await Network.currToken;
 
     return headers;
   }
@@ -26,7 +19,7 @@ class Network {
 
     try {
       var res = await http.post('$connUrl$route',
-          body: body, headers: await _headers);
+          body: body, headers: await headers);
 
       return res.statusCode != 204 ? res.body : "";
     } catch (error) {
@@ -37,7 +30,6 @@ class Network {
   Future<dynamic> get(String route) async {
     try {
       var response = await http.get('$connUrl$route');
-
       return response.body;
     } catch (error) {
       print(error);
@@ -49,7 +41,7 @@ class Network {
 
     try {
       var res =
-          await http.put('$connUrl$route', body: body, headers: await _headers);
+          await http.put('$connUrl$route', body: body, headers: await headers);
 
       return res.statusCode != 204 ? res.body : "";
     } catch (error) {
